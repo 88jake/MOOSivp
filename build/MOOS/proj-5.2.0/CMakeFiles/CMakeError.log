@@ -1,0 +1,117 @@
+Determining if files jni.h exist failed with the following output:
+Change Dir: /home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_ecfb8/fast && /usr/bin/gmake -f CMakeFiles/cmTC_ecfb8.dir/build.make CMakeFiles/cmTC_ecfb8.dir/build
+gmake[1]: Entering directory '/home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ecfb8.dir/HAVE_JNI_H.c.o
+/usr/bin/cc   -Wall -Wextra -Wswitch -Wshadow -Wunused-parameter -Wmissing-prototypes -Wmissing-declarations -Wformat -Wformat-security  -fPIE   -o CMakeFiles/cmTC_ecfb8.dir/HAVE_JNI_H.c.o   -c /home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CheckIncludeFiles/HAVE_JNI_H.c
+/home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CheckIncludeFiles/HAVE_JNI_H.c:2:10: fatal error: jni.h: No such file or directory
+    2 | #include <jni.h>
+      |          ^~~~~~~
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_ecfb8.dir/build.make:66: CMakeFiles/cmTC_ecfb8.dir/HAVE_JNI_H.c.o] Error 1
+gmake[1]: Leaving directory '/home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:121: cmTC_ecfb8/fast] Error 2
+
+
+Source:
+/* */
+#include <jni.h>
+
+
+int main(void){return 0;}
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_0d96d/fast && /usr/bin/gmake -f CMakeFiles/cmTC_0d96d.dir/build.make CMakeFiles/cmTC_0d96d.dir/build
+gmake[1]: Entering directory '/home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0d96d.dir/src.c.o
+/usr/bin/cc   -Wall -Wextra -Wswitch -Wshadow -Wunused-parameter -Wmissing-prototypes -Wmissing-declarations -Wformat -Wformat-security -DCMAKE_HAVE_LIBC_PTHREAD -fPIE   -o CMakeFiles/cmTC_0d96d.dir/src.c.o   -c /home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp/src.c
+/home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp/src.c:3:7: warning: no previous prototype for ‘test_func’ [-Wmissing-prototypes]
+    3 | void* test_func(void* data)
+      |       ^~~~~~~~~
+Linking C executable cmTC_0d96d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0d96d.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall -Wextra -Wswitch -Wshadow -Wunused-parameter -Wmissing-prototypes -Wmissing-declarations -Wformat -Wformat-security -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_0d96d.dir/src.c.o  -o cmTC_0d96d 
+/usr/bin/ld: CMakeFiles/cmTC_0d96d.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_0d96d.dir/build.make:87: cmTC_0d96d] Error 1
+gmake[1]: Leaving directory '/home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:121: cmTC_0d96d/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_22478/fast && /usr/bin/gmake -f CMakeFiles/cmTC_22478.dir/build.make CMakeFiles/cmTC_22478.dir/build
+gmake[1]: Entering directory '/home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_22478.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -Wall -Wextra -Wswitch -Wshadow -Wunused-parameter -Wmissing-prototypes -Wmissing-declarations -Wformat -Wformat-security -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE   -o CMakeFiles/cmTC_22478.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_22478
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_22478.dir/link.txt --verbose=1
+/usr/bin/cc  -Wall -Wextra -Wswitch -Wshadow -Wunused-parameter -Wmissing-prototypes -Wmissing-declarations -Wformat -Wformat-security -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_22478.dir/CheckFunctionExists.c.o  -o cmTC_22478  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_22478.dir/build.make:87: cmTC_22478] Error 1
+gmake[1]: Leaving directory '/home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:121: cmTC_22478/fast] Error 2
+
+
+
+Determining if the PTHREAD_MUTEX_RECURSIVE exist failed with the following output:
+Change Dir: /home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_d7033/fast && /usr/bin/gmake -f CMakeFiles/cmTC_d7033.dir/build.make CMakeFiles/cmTC_d7033.dir/build
+gmake[1]: Entering directory '/home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d7033.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -Wall -Wextra -Wswitch -Wshadow -Wunused-parameter -Wmissing-prototypes -Wmissing-declarations -Wformat -Wformat-security  -fPIE   -o CMakeFiles/cmTC_d7033.dir/CheckSymbolExists.c.o   -c /home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function ‘main’:
+/home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:18: error: lvalue required as unary ‘&’ operand
+    8 |   return ((int*)(&PTHREAD_MUTEX_RECURSIVE))[argc];
+      |                  ^
+/home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:4:14: warning: parameter ‘argc’ set but not used [-Wunused-but-set-parameter]
+    4 | int main(int argc, char** argv)
+      |          ~~~~^~~~
+gmake[1]: *** [CMakeFiles/cmTC_d7033.dir/build.make:66: CMakeFiles/cmTC_d7033.dir/CheckSymbolExists.c.o] Error 1
+gmake[1]: Leaving directory '/home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:121: cmTC_d7033/fast] Error 2
+
+
+File /home/jlbarry1/moos-ivp/build/MOOS/proj-5.2.0/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef PTHREAD_MUTEX_RECURSIVE
+  return ((int*)(&PTHREAD_MUTEX_RECURSIVE))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

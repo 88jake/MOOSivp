@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -pedantic -fPIC -g -Os -std=c++11  -rdynamic CMakeFiles/pickpos.dir/PickPos.cpp.o CMakeFiles/pickpos.dir/PickPos_Info.cpp.o CMakeFiles/pickpos.dir/main.cpp.o  -o /home/jlbarry1/moos-ivp/bin/pickpos  /home/jlbarry1/moos-ivp/lib/libgeometry.a /home/jlbarry1/moos-ivp/lib/libmbutil.a 
